@@ -55,7 +55,7 @@ section {
 
 /* 로고 텍스트 대신 이미지 자체의 크기 조절 */
 .logo-text img {
-    height: 30px; /* 로고 높이를 30px로 설정 (원하는 크기로 조정 가능) */
+    height: 60px; /* 로고 높이를 30px로 설정 (원하는 크기로 조정 가능) */
     width: auto; /* 비율 유지를 위해 너비는 자동으로 설정 */
     vertical-align: middle; /* 메뉴와 수직 정렬을 맞추기 위함 */
 }
@@ -182,4 +182,5 @@ nav a:hover { opacity: 1; }
     z-index: 999;
 }
 /* ... (댓글 섹션 스타일은 생략) ... */
+
 
