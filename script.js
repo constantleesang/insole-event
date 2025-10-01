@@ -1,133 +1,84 @@
-/* 기본 리셋 및 폰트 */
-body {
-    font-family: 'Noto Sans KR', sans-serif;
-    line-height: 1.6;
-    background-color: #f8f8f8; /* 깔끔한 배경 */
-    color: #333;
-}
-main {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: white; /* 콘텐츠 영역 배경 */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-}
-section {
-    padding: 30px 0;
-    border-bottom: 1px solid #eee;
-}
-h2 {
-    font-size: 28px;
-    font-weight: 700;
-    color: #004080; /* 엑슬리스 블루 톤 */
-    margin-bottom: 20px;
-    padding-bottom: 5px;
-    border-bottom: 2px solid #004080;
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const commentForm = document.getElementById('comment-form');
+    const commentList = document.getElementById('comment-list');
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    
+    // 임시 댓글 데이터 (실제는 서버/DB에서 가져와야 함)
+    let allComments = [
+        { name: "김*민", content: "신청 완료했습니다! 발이 편안해지길 기대합니다.", date: "2025.10.01" },
+        { name: "이*희", content: "충북대 교직원입니다. 좋은 체험단 감사합니다.", date: "2025.10.01" },
+        { name: "박*수", content: "평소 오래 서있는데 꼭 당첨되고 싶어요!", date: "2025.10.01" },
+        { name: "최*영", content: "LWT-1 너무 궁금합니다. 신청했어요.", date: "2025.10.01" },
+        { name: "정*원", content: "댓글 이벤트 사은품도 기대되네요!", date: "2025.10.01" },
+        // 5개 이상 데이터 예시
+        { name: "강*호", content: "신청 후 댓글 남깁니다.", date: "2025.09.30" },
+        { name: "윤*서", content: "맞춤형 인솔 꼭 써보고 싶어요.", date: "2025.09.30" },
+        { name: "한*림", content: "베스트 후기 경품 노려봅니다!", date: "2025.09.30" },
+        { name: "서*준", content: "발 통증 때문에 힘들었는데 기대됩니다.", date: "2025.09.30" },
+        { name: "오*주", content: "새내기 학생입니다! 바로 신청했어요.", date: "2025.09.30" },
+    ].sort((a, b) => new Date(b.date) - new Date(a.date)); // 최신순 정렬
 
-/* 1. 헤더 스타일 */
-header {
-    background-color: #00204A;
-    color: white;
-    padding: 15px 0;
-}
-.header-content {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.logo-text {
-    font-size: 24px;
-    font-weight: bold;
-}
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-}
+    let commentsPerPage = 5;
+    let currentPage = 0;
 
-/* 2. 메인 타이틀 강조 */
-#main-title-section {
-    text-align: center;
-}
-#main-title-section h2 {
-    font-size: 40px;
-    color: #333; /* 중앙 타이틀은 대비되게 */
-    border: none;
-}
-.subtitle {
-    font-size: 20px;
-    color: #666;
-    margin-top: 10px;
-}
+    // 댓글을 HTML로 생성
+    function renderComments() {
+        const start = currentPage * commentsPerPage;
+        const end = start + commentsPerPage;
+        const commentsToRender = allComments.slice(start, end);
 
-/* 3. 모집 및 미션/혜택 리스트 */
-.detail-list li, .mission-list li {
-    margin-bottom: 10px;
-}
-.benefit-card-group {
-    display: flex;
-    gap: 20px;
-    margin-top: 20px;
-}
-.benefit-card {
-    flex: 1;
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-}
-.benefit-card h3 {
-    color: #004080;
-    font-size: 18px;
-    margin-bottom: 10px;
-}
+        let html = commentsToRender.map(comment => `
+            <div>
+                <p><strong>${comment.name}</strong> (${comment.date})</p>
+                <p>${comment.content}</p>
+            </div>
+        `).join('');
 
-/* 4. CTA 버튼 */
-.main-cta-button {
-    display: block;
-    width: 80%;
-    max-width: 400px;
-    margin: 30px auto 10px auto;
-    padding: 15px 30px;
-    background-color: #FF7F50; /* 강조 색상 (주황색 계열로 눈에 띄게) */
-    color: white;
-    text-align: center;
-    font-size: 22px;
-    font-weight: 700;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-.main-cta-button:hover {
-    background-color: #E66A42;
-}
-.comment-trigger {
-    text-align: center;
-    color: #004080;
-    font-weight: 700;
-    cursor: pointer;
-    margin-top: 10px;
-}
+        // 기존 내용을 유지하고 추가 (더보기 기능 구현)
+        if (currentPage === 0) {
+            commentList.innerHTML = html;
+        } else {
+            commentList.innerHTML += html;
+        }
 
-/* 5. 플로팅 CTA 버튼 */
-#floating-cta-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #00bfff; /* 눈에 띄는 하늘색 */
-    color: white;
-    padding: 15px 25px;
-    border-radius: 50px;
-    font-size: 18px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 999;
-    transition: transform 0.3s;
-}
-#floating-cta-button:hover {
-    transform: scale(1.05);
-}
+        // '더보기' 버튼 노출/숨김 처리
+        if (end < allComments.length) {
+            loadMoreBtn.style.display = 'block';
+        } else {
+            loadMoreBtn.style.display = 'none';
+        }
+    }
+
+    // 댓글 등록 기능 (실제로는 서버로 전송되어야 함)
+    commentForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const userName = document.getElementById('user-name').value;
+        const content = document.getElementById('comment-content').value;
+        const now = new Date();
+        const dateString = `${now.getFullYear()}.${now.getMonth() + 1}.${now.getDate()}`;
+
+        const newComment = { name: userName, content: content, date: dateString };
+
+        // 새 댓글을 배열 맨 앞에 추가 후 다시 렌더링
+        allComments.unshift(newComment); 
+        
+        // 폼 초기화
+        commentForm.reset();
+        
+        // 첫 페이지부터 다시 로드
+        currentPage = 0; 
+        renderComments();
+        
+        alert("댓글이 등록되었습니다! 사은품 추첨에 응모되었습니다.");
+    });
+
+    // '더보기' 버튼 클릭 시 다음 페이지 로드
+    loadMoreBtn.addEventListener('click', () => {
+        currentPage++;
+        renderComments();
+    });
+
+    // 초기 댓글 로드
+    renderComments();
+});
