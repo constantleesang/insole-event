@@ -1,0 +1,97 @@
+/* 기본 리셋 및 폰트 설정 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Noto Sans KR', sans-serif; /* 실제 시안 폰트에 맞게 변경 권장 */
+    color: #333;
+}
+
+/* 1. 메인 컨테이너 (이미지 배경 처리) */
+#main-wrapper {
+    width: 100%;
+    min-height: 1200px; /* 시안 이미지 높이에 맞게 조정 */
+    background: url('슬라이드3.JPG') no-repeat center top;
+    background-size: cover; /* 화면 크기에 맞게 배경 조정 */
+    position: relative;
+}
+
+/* 2. 헤더 및 내비게이션 (오버레이 포지셔닝) */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; /* 대략적인 메뉴 높이 */
+}
+.nav-item {
+    position: absolute; /* 절대 위치로 이미지 위의 텍스트에 겹치도록 설정 */
+    font-size: 16px;
+    font-weight: bold;
+    color: white; /* 이미지 속 텍스트 색상에 맞춤 */
+    text-decoration: none;
+    padding: 5px 10px;
+    /* 클릭 영역 확장을 위한 투명 배경 (선택 사항) */
+    background: rgba(0, 0, 0, 0.1); 
+    border-radius: 5px;
+    z-index: 100;
+}
+
+/* 3. CTA 버튼 스타일 */
+.cta-button {
+    display: block;
+    width: 350px;
+    margin: 20px auto;
+    padding: 15px 30px;
+    background-color: #3C9CFF; /* 강조 컬러 (로고 블루 톤에 맞춤) */
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+/* 4. 플로팅 CTA 버튼 */
+#floating-cta-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #FF7F50; /* 눈에 띄는 포인트 컬러 */
+    padding: 15px 25px;
+    border-radius: 50px;
+    z-index: 999;
+}
+
+/* 5. 댓글 섹션 스타일 */
+#comment-section {
+    width: 80%;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    border-top: 2px solid #ddd;
+}
+#comment-form input, #comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#comment-list div {
+    border-bottom: 1px dashed #eee;
+    padding: 10px 0;
+}
+#load-more-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
