@@ -88,6 +88,48 @@ nav a {
 }
 nav a:hover { opacity: 1; }
 
+/* style.css 파일 */
+
+/* 헤드 슬로건 섹션 배경 이미지 추가 */
+#header-slogan {
+    text-align: center;
+    padding-top: 50px; /* 기존 패딩 유지 */
+    padding-bottom: 50px; /* 배경 이미지와 어울리도록 하단 패딩도 조정 */
+    color: white; /* 배경 이미지가 어두울 수 있으므로 텍스트 색상을 흰색으로 변경 */
+
+    /* ★★★ 배경 이미지 설정 시작 ★★★ */
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* 이미지 위에 어두운 오버레이 */
+        url('main_slogan_bg.png'); /* 여기에 준비한 이미지 파일 이름을 입력하세요! */
+    background-size: cover;       /* 섹션 전체를 덮도록 이미지 크기 조정 */
+    background-position: center;  /* 이미지를 중앙에 배치 */
+    background-repeat: no-repeat; /* 이미지 반복 방지 */
+    /* ★★★ 배경 이미지 설정 끝 ★★★ */
+
+    /* 텍스트 그림자 추가로 가독성 높이기 (선택 사항) */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+}
+
+/* 배경이 어두워지므로, 이 섹션 내의 텍스트 색상 조정 */
+#header-slogan .main-title,
+#header-slogan .subtitle,
+#header-slogan .tagline,
+#header-slogan .company-intro-text {
+    color: white; /* 모든 텍스트를 흰색으로 변경 */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* 텍스트 그림자 추가로 가독성 향상 */
+}
+
+/* 특히 메인 타이틀은 더 강조 */
+#header-slogan .main-title {
+    font-size: 60px; /* 폰트 크기를 더 키워 배경 위에서 돋보이게 */
+    line-height: 1.1;
+}
+
+/* 회사 소개 텍스트 색상도 흰색으로 변경 */
+#header-slogan .company-intro-text strong {
+    color: white; /* 이 부분도 흰색으로 변경 (이전 네이비색이었음) */
+}
+
 /* 2. 메인 슬로건 (강화) */
 .hero-section {
     padding-top: 50px;
@@ -242,6 +284,7 @@ nav a:hover { opacity: 1; }
     color: #999;
 }
 /* ... (댓글 섹션 스타일은 생략) ... */
+
 
 
 
