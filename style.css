@@ -22,6 +22,12 @@ section {
 .text-center {
     text-align: center;
 }
+/* style.css 파일에 아래 코드를 추가합니다. */
+
+/* 회사 소개 텍스트 내부의 <strong> 태그 색상 변경 */
+.company-intro-text strong {
+    color: #00204A; /* 상단 메뉴 배경색과 동일한 짙은 네이비 블루 */
+}
 .section-title {
     font-size: 24px;
     font-weight: 700;
@@ -182,6 +188,7 @@ nav a:hover { opacity: 1; }
     z-index: 999;
 }
 /* ... (댓글 섹션 스타일은 생략) ... */
+
 
 
 
