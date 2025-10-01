@@ -51,10 +51,11 @@ section {
     justify-content: space-between;
     align-items: center;
 }
-.logo-text .logo-text img {
-    height: 30px; /* 이 값을 조절하여 로고의 높이를 변경합니다. */
-    width: auto;  /* 너비는 'auto'로 유지하여 비율을 깨지 않게 합니다. */
-    vertical-align: middle; 
+.logo-text a {
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
 }
 nav a {
     color: white;
@@ -169,4 +170,3 @@ nav a:hover { opacity: 1; }
     z-index: 999;
 }
 /* ... (댓글 섹션 스타일은 생략) ... */
-
