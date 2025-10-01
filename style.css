@@ -121,7 +121,7 @@ nav a:hover { opacity: 1; }
 
 /* 특히 메인 타이틀은 더 강조 */
 #header-slogan .main-title {
-    font-size: 60px; /* 폰트 크기를 더 키워 배경 위에서 돋보이게 */
+    font-size: 55px; /* 폰트 크기를 더 키워 배경 위에서 돋보이게 */
     line-height: 1.1;
 }
 
@@ -284,6 +284,7 @@ nav a:hover { opacity: 1; }
     color: #999;
 }
 /* ... (댓글 섹션 스타일은 생략) ... */
+
 
 
 
