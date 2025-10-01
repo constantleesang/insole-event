@@ -57,6 +57,7 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 100%;
 }
 /* style.css 파일에 아래 내용 추가 또는 수정 */
 
@@ -191,6 +192,7 @@ nav a:hover { opacity: 1; }
     z-index: 999;
 }
 /* ... (댓글 섹션 스타일은 생략) ... */
+
 
 
 
