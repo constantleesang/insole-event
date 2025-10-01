@@ -191,7 +191,58 @@ nav a:hover { opacity: 1; }
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     z-index: 999;
 }
+
+/* style.css 파일에 아래 코드를 수정/추가합니다. */
+
+/* 댓글 섹션 컨테이너 스타일 개선 */
+#comment-section {
+    padding: 30px 0;
+    border-top: 5px solid #00204A; /* 짙은 네이비 굵은 선으로 강조 */
+    border-bottom: none;
+    background-color: #fafafa; /* 섹션 배경색을 약간 회색으로 변경 */
+    margin-top: 30px;
+}
+
+#comment-area-placeholder {
+    padding: 25px;
+    background-color: #fff; /* 입력 영역은 하얀색으로 대비 */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* 은은한 그림자 추가 */
+}
+
+/* 댓글 폼 버튼 스타일 강조 */
+#comment-form button {
+    background-color: #3C9CFF; /* 밝은 스카이 블루 (강조 컬러) */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+#comment-form button:hover {
+    background-color: #007bff;
+}
+
+/* 댓글 목록 스타일 */
+#comment-list div {
+    border-bottom: 1px dashed #e0e0e0; /* 댓글 구분선 */
+    padding: 15px 0;
+}
+#comment-list div:last-child {
+    border-bottom: none; /* 마지막 댓글은 선 제거 */
+}
+#comment-list strong {
+    color: #00204A; /* 작성자 이름 색상 강조 */
+    margin-right: 10px;
+}
+.comment-date {
+    font-size: 0.85em;
+    color: #999;
+}
 /* ... (댓글 섹션 스타일은 생략) ... */
+
 
 
 
